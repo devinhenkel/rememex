@@ -3,7 +3,7 @@
     <ion-list show-delete="false" can-swipe="true">
       <ion-item ng-repeat="(key, value) in listObject">
         {{value}} ({{key}})
-        <ion-option-button class="button-calm icon ion-chatbubble-working"></ion-option-button>
+        <ion-option-button class="button-calm icon ion-chatbubble-working" ng-click="launchUrl(value)"></ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>

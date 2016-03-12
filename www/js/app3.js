@@ -43,10 +43,12 @@ angular.module('starter', ['ionic', 'ngStorage'])
 })
 
 .controller("MainController", function($scope, $http, $ionicPopup, $localStorage) {
-
-  $scope.launchUrl = function(qval){
-    window.open("https://www.google.com/search?q="+qval, "_system", "location=true");
+  $localStorage.test = {
+    first: "Devin",
+    last: "Henkel-Legare"
   };
+
+  console.log($localStorage.test.last);
 
   $scope.listObject = {};
 

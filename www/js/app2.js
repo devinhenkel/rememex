@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngStorage'])
+angular.module('starter', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,10 +42,39 @@ angular.module('starter', ['ionic', 'ngStorage'])
   $urlRouterProvider.otherwise("list");
 })
 
-.controller("MainController", function($scope, $http, $ionicPopup, $localStorage) {
+.controller("MainController", function($scope, $http, $ionicPopup) {
 
-  $scope.launchUrl = function(qval){
-    window.open("https://www.google.com/search?q="+qval, "_system", "location=true");
+ // An alert dialog
+ $scope.showAlert = function(aval) {
+   var alertPopup = $ionicPopup.alert({
+     title: 'Person Clicked',
+     template: aval
+   });
+
+   alertPopup.then(function(res) {
+     console.log('Thanks for clicking a person');
+   });
+ };
+
+  $scope.makeRequest = function (qval) {
+    $http(
+      {
+        url: "https://httpbin.org/get",
+        method: "GET",
+        param: {
+          person: qval
+        }
+      }
+    ).then(
+      function(result){
+        console.log(JSON.stringify(result));
+        $scope.showAlert(JSON.stringify(result.config.param.person));
+      },
+      function(error){
+        console.log(JSON.stringify(error));
+        $scope.showAlert(JSON.stringify(error));
+      }
+    );
   };
 
   $scope.listObject = {};
