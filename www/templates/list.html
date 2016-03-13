@@ -1,7 +1,7 @@
 <ion-view title="TinyURL Project">
   <ion-content>
     <ion-list show-delete="false" can-swipe="true">
-      <ion-item ng-repeat="(key, value) in listObject">
+      <ion-item ng-repeat="(key, value) in listObject" ng-click="showToast(value)">
         {{value}} ({{key}})
         <ion-option-button class="button-calm icon ion-chatbubble-working" ng-click="launchUrl(value)"></ion-option-button>
       </ion-item>
