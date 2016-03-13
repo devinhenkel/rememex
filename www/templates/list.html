@@ -7,12 +7,12 @@
       <ion-item ng-repeat="(key, value) in listObject">
         <div class="row">
           <div class="col">
-            <strong>{{value.shortURL}}</strong>
+            <strong>{{value}}</strong>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            {{value.longUrl}}
+            {{key}}
           </div>
         </div>
         <ion-option-button class="button-calm icon ion-search" ng-click="launchUrl(value)"></ion-option-button>

@@ -50,11 +50,11 @@ angular.module('starter', ['ionic', 'ngStorage'])
 
   $scope.listObject = {};
 
-  $scope.listObject.a = "Devin Henkel-Legare";
-  $scope.listObject.b = "Laura Legare";
-  $scope.listObject.c = "Ellie Legare";
-  $scope.listObject.d = "Edison Legare";
-  $scope.listObject.e = "Emmett Legare";
+  $scope.listObject.dad = "Devin Henkel-Legare";
+  $scope.listObject.mom = "Laura Legare";
+  $scope.listObject.daughter = "Ellie Legare";
+  $scope.listObject.son1 = "Edison Legare";
+  $scope.listObject.son2 = "Emmett Legare";
 
 
 });
