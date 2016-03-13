@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'ngStorage'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider){
+.config(function($stateProvider, $urlRouterProvider, $ngCordova){
 
   $stateProvider
     .state("list", {
