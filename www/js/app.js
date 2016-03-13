@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'ngStorage'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ngCordova){
+.config(function($stateProvider, $urlRouterProvider){
 
   $stateProvider
     .state("list", {
@@ -45,7 +45,7 @@ angular.module('starter', ['ionic', 'ngStorage'])
 .controller("MainController", function($scope, $http, $ionicPopup, $localStorage) {
 
   $scope.launchUrl = function(qval){
-    window.open("https://www.google.com/search?q="+qval, "_system", "location=true");
+    window.open("https://www.google.com/search?q="+qval, "_blank", "location=true");
   };
 
   $scope.listObject = {};
