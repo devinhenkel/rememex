@@ -45,7 +45,7 @@ angular.module('starter', ['ionic', 'ngStorage'])
 .controller("MainController", function($scope, $http, $ionicPopup, $localStorage) {
 
   $scope.launchUrl = function(qval){
-    window.open('https://www.google.com/search?q='+qval,'_blank','location=no,disallowoverscroll=no,toolbar=yes');
+    window.open('https://www.google.com/search?q='+qval,'_blank','location=yes,disallowoverscroll=no,toolbar=yes,closebuttoncaption=Done');
   };
 
   $scope.listObject = {};
