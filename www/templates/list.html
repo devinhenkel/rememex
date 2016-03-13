@@ -1,9 +1,21 @@
-<ion-view title="TinyURL Project">
+<ion-view title="Rememx Project">
+  <ion-nav-button side="right">
+    <button class="right button button-icon icon ion-plus"></button>
+  </ion-nav-button>
   <ion-content>
     <ion-list show-delete="false" can-swipe="true">
-      <ion-item ng-repeat="(key, value) in listObject" ng-click="showToast(value)">
-        {{value}} ({{key}})
-        <ion-option-button class="button-calm icon ion-chatbubble-working" ng-click="launchUrl(value)"></ion-option-button>
+      <ion-item ng-repeat="(key, value) in listObject">
+        <div class="row">
+          <div class="col">
+            <strong>{{value.shortURL}}</strong>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            {{value.longUrl}}
+          </div>
+        </div>
+        <ion-option-button class="button-calm icon ion-search" ng-click="launchUrl(value)"></ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>
