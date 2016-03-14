@@ -48,23 +48,32 @@ angular.module('starter', ['ionic', 'ngStorage'])
   $urlRouterProvider.otherwise("list");
 })
 
-.controller("MainController", function($scope, $http, $ionicPopup, $localStorage) {
+.controller("MainController", function($scope, $http, $ionicPopup, $localStorage, $state) {
+
+  $scope.init = function(){
+    $scope.urlList = $localStorage.tiny;
+  };
 
   $scope.shorten = function(longUrl){
     $http(
       {
         method: "GET",
         url: "http://tinyurl.com/api-create.php",
-        param: {
+        params: {
           url: longUrl
         }
       }
     )
     .success(function(result){
-      alert(result);
+      if (typeof $localStorage.tiny == "undefined") { $localStorage.tiny = {}; }
+      $localStorage.tiny[longUrl] = {
+        longUrl: longUrl,
+        shortUrl: result
+      };
+      $state.go("list");
     })
     .error(function(error){
-      console.log(JSON.stringify(error)); 
+      console.log(JSON.stringify(error));
     });
   };
 
