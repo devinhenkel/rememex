@@ -78,7 +78,8 @@ angular.module('starter', ['ionic', 'ngStorage'])
   };
 
   $scope.launchUrl = function(qval){
-    window.open('https://www.google.com/search?q='+qval,'_blank','location=yes,disallowoverscroll=no,toolbar=yes,closebuttoncaption=Done');
+    console.log(qval);
+    window.open(qval,'_blank','location=yes,toolbar=yes,closebuttoncaption=Done');
   };
 
   $scope.listObject = {};
