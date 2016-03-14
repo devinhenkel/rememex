@@ -37,6 +37,12 @@ angular.module('starter', ['ionic', 'ngStorage'])
       "templateUrl": "templates/account.html",
       "controller": "AccountController",
       "cache": false
+    })
+    .state("create", {
+      "url": "/create",
+      "templateUrl": "templates/create.html",
+      "controller": "MainController",
+      "cache": false
     });
 
   $urlRouterProvider.otherwise("list");
@@ -44,17 +50,31 @@ angular.module('starter', ['ionic', 'ngStorage'])
 
 .controller("MainController", function($scope, $http, $ionicPopup, $localStorage) {
 
+  $scope.shorten = function(longUrl){
+    $http(
+      {
+        method: "GET",
+        url: "http://tinyurl.com/api-create.php",
+        param: {
+          url: longUrl
+        }
+      }
+    )
+    .success(function(result){
+      alert(result);
+    })
+    .error(function(error){
+      console.log(JSON.stringify(error)); 
+    });
+  };
+
   $scope.launchUrl = function(qval){
     window.open('https://www.google.com/search?q='+qval,'_blank','location=yes,disallowoverscroll=no,toolbar=yes,closebuttoncaption=Done');
   };
 
   $scope.listObject = {};
 
-  $scope.listObject.dad = "Devin Henkel-Legare";
-  $scope.listObject.mom = "Laura Legare";
-  $scope.listObject.daughter = "Ellie Legare";
-  $scope.listObject.son1 = "Edison Legare";
-  $scope.listObject.son2 = "Emmett Legare";
+
 
 
 });

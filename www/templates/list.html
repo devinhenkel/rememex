@@ -1,21 +1,21 @@
-<ion-view title="Rememex Project">
-  <ion-nav-button side="right">
-    <button class="right button button-icon icon ion-plus"></button>
-  </ion-nav-button>
+<ion-view title="Rememex Turl Project">
+  <ion-nav-buttons side="right">
+    <button class="right button button-icon icon ion-plus" ui-sref="create"></button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-list show-delete="false" can-swipe="true">
-      <ion-item ng-repeat="(key, value) in listObject">
+      <ion-item ng-repeat="(key, value) in urlList">
         <div class="row">
           <div class="col">
-            <strong>{{value}}</strong>
+            <strong>{{value.shortUrl}}</strong>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            {{key}}
+            {{value.longUrl}}
           </div>
         </div>
-        <ion-option-button class="button-calm icon ion-search" ng-click="launchUrl(value)"></ion-option-button>
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="launchUrl(value)"></ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>
